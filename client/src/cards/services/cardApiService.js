@@ -1,7 +1,5 @@
 import axios from "axios";
 
-
-
 const PORT = 8181;
 // const apiUrl = process.env.REACT_APP_API_URL || `http://localhost:9191`;
 const apiUrl = process.env.REACT_APP_API_URL || `http://localhost:${PORT}`;
@@ -17,7 +15,7 @@ export const getCards = async () => {
 
 export const getCard = async (cardId) => {
   try {
-    const { data } = await axios.get(`${apiUrl}/cards/${cardId}`);    
+    const { data } = await axios.get(`${apiUrl}/cards/${cardId}`);
     return data;
   } catch (error) {
     return Promise.reject(error.message);
@@ -47,7 +45,7 @@ export const editCard = async (cardId, normelizedCard) => {
     const { data } = await axios.put(
       `${apiUrl}/cards/${cardId}`,
       normelizedCard
-      );
+    );
     return data;
   } catch (error) {
     return Promise.reject(error.message);

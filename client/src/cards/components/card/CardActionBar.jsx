@@ -16,17 +16,18 @@ const CardActionBar = ({ card, onDelete, onLike, cardLikes }) => {
   const [isDialogOpen, setDialog] = useState(false);
   const { user } = useUser();
   const navigate = useNavigate();
+  const { handleLikeCard } = useCards();
   const [isLike, setLike] = useState(() => {
     if (!user) return false;
     return !!cardLikes.find((id) => id === user._id);
   });
-  const { handleLikeCard } = useCards();
 
   const handleLike = async () => {
     setLike((prev) => !prev);
     await handleLikeCard(card._id);
     onLike();
   };
+  
   const handleDialog = (trim) => {
     if (trim === "open") return setDialog(true);
     setDialog(false);
@@ -44,6 +45,7 @@ const CardActionBar = ({ card, onDelete, onLike, cardLikes }) => {
         sx={{ paddingTop: 0, justifyContent: "space-between" }}
       >
         <Box>
+
           {user && (user.isAdmin || user._id === card.user_id) && (
             <IconButton
               aria-label="delete card"

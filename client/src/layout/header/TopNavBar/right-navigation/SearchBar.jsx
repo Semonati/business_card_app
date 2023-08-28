@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import { useTheme } from "../../../../providers/ThemeProvider";
 import { useSearchParams } from "react-router-dom";
 
-const SearchBar = ({ cards }) => {
+const SearchBar = () => {
   const { isDark } = useTheme();
   const [searchParams, setSearchParams] = useSearchParams();
   const handleChange = ({ target }) => setSearchParams({ q: target.value });

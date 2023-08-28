@@ -17,7 +17,7 @@ const CardForm = ({
   changeBizNumber,
 }) => {
   const { user } = useUser();
-    const { cardId } = useParams();
+  const { cardId } = useParams();
   return (
     <Form
       onSubmit={onSubmit}
@@ -164,7 +164,11 @@ const CardForm = ({
         required={false}
       />
       {user.isAdmin && (
-        <ChangeBizNumber errors={errors} onInputChange={onInputChange} data={data} />
+        <ChangeBizNumber
+          errors={errors}
+          onInputChange={onInputChange}
+          data={data}
+        />
       )}
     </Form>
   );

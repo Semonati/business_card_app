@@ -6,7 +6,7 @@ import useCards from "../hooks/useCards";
 
 const CardsPage = () => {
   const { value, handleGetCards, handleDeleteCard } = useCards();
-  const { cards, error, isPending, filtered } = value;
+  const { error, isPending, filtered } = value;
   
   useEffect(() => {
     handleGetCards();

@@ -9,21 +9,15 @@ import Logged from "./Logged";
 import NotLogged from "./NotLogged";
 import { useTheme } from "../../../../providers/ThemeProvider";
 import { useUser } from "../../../../users/providers/UserProviders";
-import useCards from "../../../../cards/hooks/useCards";
 
 const RightNavBar = () => {
   const { isDark, toggelDarkMode } = useTheme();
   const { user } = useUser();
-  const { value, handleGetCards } = useCards();
-
-  useEffect(() => {
-    handleGetCards();
-  }, []);
 
   return (
     <>
       <Box sx={{ display: { xs: "none", md: "inline-flex" } }}>
-        <SearchBar cards={value.cards} handleGetCards={handleGetCards} />
+        <SearchBar />
 
         <IconButton sx={{ marginLeft: 1 }} onClick={toggelDarkMode}>
           {isDark ? <LightModeIcon /> : <DarkModeIcon />}

@@ -26,9 +26,8 @@ const useCards = () => {
   const [searchParams] = useSearchParams();
   const { userId } = useParams();
   
-
-  useEffect(() => {
-    setQuery(searchParams.get("q") ?? "");
+  useEffect(() => {    
+    setQuery(searchParams.get("q") ?? "");    
   }, [searchParams]);
 
   useEffect(() => {
